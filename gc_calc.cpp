@@ -16,7 +16,7 @@ int main() {
 
     if (dna.length() == 0) {
         cout << "No sequence entered!" << endl;
-        return 0;
+        
     }
 
     double gc_percent = (double)gc_count / dna.length() * 100;
@@ -24,6 +24,7 @@ int main() {
     cout << "GC Count: " << gc_count << endl;
     cout << "Total Length: " << dna.length() << endl;
     cout << "GC Content: " << gc_percent << "%" << endl;
+    cout<<"Total Sequence Length: "<<seq.length() <<"bp" <<endl;
 
     return 0;
 }
