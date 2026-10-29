@@ -3,28 +3,26 @@
 using namespace std;
 
 int main() {
-    string dna;
-    cout << "Enter DNA sequence: ";
-    cin >> dna;
+    string seq;
+    cout << "Enter DNA Sequence: ";
+    cin >> seq;
 
     int gc_count = 0;
-    for (char c : dna) {
-        if (c == 'G' || c == 'g' || c == 'C' || c == 'c') {
+    for (char base : seq) {
+        // Step 2 ka validation code
+        if (base != 'A' && base != 'T' && base != 'G' && base != 'C') {
+            cerr << "Warning: Non-canonical DNA character detected: " << base << endl;
+        }
+        if (base == 'G' || base == 'C') {
             gc_count++;
         }
     }
 
-    if (dna.length() == 0) {
-        cout << "No sequence entered!" << endl;
-        
-    }
+    float gc_percentage = ((float)gc_count / seq.length()) * 100;
 
-    double gc_percent = (double)gc_count / dna.length() * 100;
-
-    cout << "GC Count: " << gc_count << endl;
-    cout << "Total Length: " << dna.length() << endl;
-    cout << "GC Content: " << gc_percent << "%" << endl;
-    cout<<"Total Sequence Length: "<<seq.length() <<"bp" <<endl;
+    cout << "Sequence: " << seq << endl;
+    cout << "GC Content: " << gc_percentage << "%" << endl;
+    cout << "Total Sequence Length: " << seq.length() << " bp" << endl;
 
     return 0;
 }
